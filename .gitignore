@@ -1,0 +1,66 @@
+# Compiled source
+*.dll
+*.exe
+*.pdb
+*.mdb
+*.app
+
+# NuGet packages cache
+packages/
+!packages/*.config
+
+# Build directories
+bin/
+obj/
+
+# Logs
+*.log
+
+# User-specific files
+*.user
+*.rsuser
+*.suo
+
+# Visual Studio configuration
+.vscode/
+.vs/
+*.dbmdl
+*.opendb
+*.cache
+
+# Debug settings
+launchSettings.json
+
+# Local settings
+#appsettings.*.json
+secret.json
+
+# File system
+.DS_Store
+Thumbs.db
+
+# Published directories
+publish/
+out/
+
+# Generated build settings
+.idea/
+*.iml
+*.ipr
+
+# Rider IDE configuration
+.idea/
+
+# System logs
+*.log
+
+# Local system dependencies
+*.swp
+*.swo
+
+# Local file configurations
+*.bak
+
+# Blazor WebAssembly generated files
+wwwroot/css/app.bundle.css
+wwwroot/js/app.bundle.js

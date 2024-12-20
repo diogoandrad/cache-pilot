@@ -1,0 +1,65 @@
+﻿@page "/users"
+@rendermode InteractiveServer
+
+@inject RedisService RedisService
+
+@using BlazorRedisDemo.Services
+@using BlazorRedisDemo.Models
+@using System.Text.Json
+
+<PageTitle>Users</PageTitle>
+
+<h1>Users</h1>
+
+<div>
+    <label>ID:</label>
+    <input @bind="UserId" placeholder="Enter an ID" />
+    <button @onclick="GetUser">Get User</button>
+</div>
+
+<div>
+    <label>Name:</label>
+    <input @bind="UserName" placeholder="Enter a Name" />
+    <label>Age:</label>
+    <input type="number" @bind="UserAge" />
+    <button @onclick="SaveUser">Save</button>
+</div>
+
+@if (User != null)
+{
+    <h4>User:</h4>
+    <p><b>ID:</b> @User.Id</p>
+    <p><b>Name:</b> @User.Name</p>
+    <p><b>Age:</b> @User.Age</p>
+}
+else if (!string.IsNullOrEmpty(UserId))
+{
+    <p>User not found.</p>
+}
+
+@code {
+    private string UserId = string.Empty;
+    private string UserName = string.Empty;
+    private int UserAge;
+    private User? User;
+
+    private async Task GetUser()
+    {
+        var userData = await RedisService.GetAsync(UserId);
+        if (!string.IsNullOrEmpty(userData))
+        {
+            User = JsonSerializer.Deserialize<User>(userData);
+        }
+        else
+        {
+            User = null;
+        }
+    }
+
+    private async Task SaveUser()
+    {
+        User = new User { Id = Guid.NewGuid().ToString(), Name = UserName, Age = UserAge };
+        var serializedUser = JsonSerializer.Serialize(User);
+        await RedisService.SetAsync(User.Id, serializedUser, TimeSpan.FromMinutes(5));
+    }
+}

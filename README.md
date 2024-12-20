@@ -1,22 +1,20 @@
 # Cache Pilot
 
-## :page_facing_up:	Description
+Project for studies, focusing on implementing functions for cache management.
 
-Pilot project for studying .NET 8, Blazor, and Redis, focusing on implementing functions for cache management.
+## Technologies
 
-## :computer: Technologies
+* .NET 8
 
-:small_blue_diamond: [.NET 8](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-8/overview)
+* Blazor
 
-:small_blue_diamond: [Blazor](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor)
+* Redis
 
-:small_blue_diamond: [Redis](https://redis.io/)
+## Functionalities
 
-## :pushpin: Functionalities
+* Manage users
 
-:heavy_check_mark: Manage users
-
-## :arrow_forward: Run
+## Run
 
 Clone the project:
 ```bash
@@ -33,7 +31,7 @@ Run the application:
 dotnet run
 ```
 
-## :closed_book: License
+## License
 
 Built by [Diogo Andrade](https://github.com/diogoandrad).
 This project is on [MIT license](./LICENSE).

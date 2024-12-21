@@ -18,7 +18,7 @@ Project for studies, focusing on implementing functions for cache management.
 docker run --name redis -d -p 6379:6379 -v redis-data:/data redis redis-server --requirepass "4dp8$2mk"
 ```
 
-## Run
+## Run App
 
 Clone the project:
 ```bash
